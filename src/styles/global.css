@@ -83,7 +83,10 @@ section { padding: 4.5rem var(--gutter); }
   color: var(--accent); background: var(--accent-soft); padding: 0.2rem 0.55rem; border-radius: 3px; margin-bottom: 0.9rem;
 }
 .wg-card h3 { font-family: var(--font-heading); font-weight: 400; font-size: 1.3rem; margin-bottom: 0.75rem; }
-.wg-card p { font-size: 0.875rem; color: var(--text-muted); }
+.wg-people { font-size: 0.875rem; line-height: 1.5; }
+.wg-people dt { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-top: 0.9rem; }
+.wg-people dt:first-child { margin-top: 0; }
+.wg-people dd { color: var(--text); margin-top: 0.2rem; }
 
 /* Join */
 .steps { list-style: none; counter-reset: step; max-width: var(--measure); margin-top: 1.75rem; display: grid; gap: 1.25rem; }

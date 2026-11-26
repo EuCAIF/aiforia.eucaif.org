@@ -14,11 +14,36 @@ const action = {
   cncUrl: 'https://www.cost.eu/about/who-is-who/#tabs+Name:National%20Coordinators',
 };
 
+// Leadership as listed on the COST Action page; affiliations in parentheses on the page.
 const workingGroups = [
-  { id: 'WG1', title: 'AI Methods for Discoveries in Fundamental Physics', leader: 'James Alvey' },
-  { id: 'WG2', title: 'Shared Infrastructure, Tools and Benchmarks for AI in Fundamental Physics', leader: 'Thea Aarrestad' },
-  { id: 'WG3', title: 'Training, Community building & Open Roadmapping', leader: 'Gabrijela Zaharijas' },
+  {
+    id: 'WG1',
+    title: 'AI Methods for Discoveries in Fundamental Physics',
+    leader: { name: 'James Alvey', affiliation: 'University of Cambridge' },
+    team: [
+      { name: 'Luisa Lucie-Smith', affiliation: 'University of Hamburg' },
+      { name: 'Veronica Sanz', affiliation: 'University of Sussex and University of Valencia' },
+    ],
+  },
+  {
+    id: 'WG2',
+    title: 'Shared Infrastructure, Tools and Benchmarks for AI in Fundamental Physics',
+    leader: { name: 'Thea Aarrestad', affiliation: 'ETH Zurich' },
+    team: [
+      { name: 'Daniel Murnane', affiliation: 'Niels Bohr Institute' },
+      { name: 'Gianluca Inguglia', affiliation: 'Marietta Blau Institute, Austrian Academy of Sciences' },
+    ],
+  },
+  {
+    id: 'WG3',
+    title: 'Training, Community building & Open Roadmapping',
+    leader: { name: 'Gabrijela Zaharijas', affiliation: 'University of Nova Gorica' },
+    team: [
+      { name: 'Gert Aarts', affiliation: 'Bielefeld University' },
+    ],
+  },
 ];
+const person = (p: { name: string; affiliation: string }) => `${p.name} (${p.affiliation})`;
 ---
 
 <Layout title="AIFORIA – COST Action CA25172">
@@ -84,7 +109,12 @@ const workingGroups = [
           <article class="wg-card">
             <span class="wg-id">{wg.id}</span>
             <h3>{wg.title}</h3>
-            <p>Leader: {wg.leader}</p>
+            <dl class="wg-people">
+              <dt>Leader</dt>
+              <dd>{person(wg.leader)}</dd>
+              <dt>Leadership team</dt>
+              {wg.team.map(p => <dd>{person(p)}</dd>)}
+            </dl>
           </article>
         ))}
       </div>
@@ -107,10 +137,6 @@ const workingGroups = [
         <li>
           <h3>Apply to the working groups of your interest</h3>
           <p>Choose one or more of the three working groups and submit the application form on the COST platform.</p>
-        </li>
-        <li>
-          <h3>Tell the Action Chair about your interest</h3>
-          <p>COST asks applicants to inform the Chair. Contact details are on the <a href={action.costUrl} target="_blank" rel="noopener">COST Action page</a>.</p>
         </li>
       </ol>
       <div class="actions">
