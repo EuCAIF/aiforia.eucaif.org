@@ -1,9 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import '../styles/global.css';
+
+// Facts from the official COST Action page.
+const action = {
+  number: 'CA25172',
+  title: 'Artificial Intelligence for Fundamental Physics: Open Roadmapping and Inclusive Actions',
+  period: '9 October 2026 – 8 October 2030',
+  costUrl: 'https://www.cost.eu/actions/CA25172/',
+  mouUrl: 'https://e-services.cost.eu/files/domain_files/CA/Action_CA25172/mou/CA25172-e.pdf',
+  applyUrl: 'https://e-services.cost.eu/action/CA25172/working-groups/apply',
+  ecostUrl: 'https://e-services.cost.eu/',
+  cncUrl: 'https://www.cost.eu/about/who-is-who/#tabs+Name:National%20Coordinators',
+};
+
+const workingGroups = [
+  { id: 'WG1', title: 'AI Methods for Discoveries in Fundamental Physics', leader: 'James Alvey' },
+  { id: 'WG2', title: 'Shared Infrastructure, Tools and Benchmarks for AI in Fundamental Physics', leader: 'Thea Aarrestad' },
+  { id: 'WG3', title: 'Training, Community building & Open Roadmapping', leader: 'Gabrijela Zaharijas' },
+];
 ---
 
-<Layout title="AIFORIA – EuCAIF">
+<Layout title="AIFORIA – COST Action CA25172">
 
 <header class="top">
   <div class="top-inner">
@@ -11,24 +29,113 @@ import '../styles/global.css';
       <img src="/images/eucaif-logo-icon.png" alt="" width="34" height="34" />
       EuCAIF
     </a>
-    <a class="top-link" href="https://eucaif.org">eucaif.org →</a>
+    <nav class="top-nav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#working-groups">Working groups</a>
+      <a href="#join">How to join</a>
+      <a href={action.costUrl} target="_blank" rel="noopener">COST Action page ↗</a>
+    </nav>
   </div>
 </header>
 
-<main class="hero">
-  <div class="hero-inner">
-    <p class="label">EuCAIF</p>
-    <h1>AIFORIA</h1>
-    <p class="lead">An initiative of EuCAIF, the European Coalition for AI in Fundamental Physics.</p>
-    <p class="note">This page is under construction. More information will appear here soon.</p>
-    <a class="btn" href="https://eucaif.org">Visit eucaif.org</a>
-  </div>
+<main>
+  <section class="hero">
+    <div class="container">
+      <h1 class="logo"><img src="/images/aiforia-logo.svg" alt="AIFORIA" width="580" height="128" /></h1>
+      <p class="lead">{action.title}</p>
+      <p class="meta">COST Action {action.number} · {action.period}</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="#join">Join the Action</a>
+        <a class="btn btn-secondary" href={action.costUrl} target="_blank" rel="noopener">Official COST Action page ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="band">
+    <div class="container prose">
+      <p class="label">About</p>
+      <h2>An open European platform for AI in fundamental physics</h2>
+      <p>
+        AIFORIA coordinates AI activities across particle, astroparticle, nuclear, gravitational-wave
+        and cosmological physics. The Action identifies the challenges these fields share, among them
+        trustworthy, interpretable and uncertainty-aware AI, scalable and energy-efficient architectures,
+        physics-aware models, and FAIR benchmarks and datasets, and it develops community roadmaps to
+        address them.
+      </p>
+      <p>
+        It builds capacity through training schools, hackathons and Short-Term Scientific Missions, with
+        dedicated support for young researchers and for Inclusiveness Target Countries. AIFORIA builds on the
+        <a href="https://eucaif.org">European Coalition for AI in Fundamental Physics (EuCAIF)</a>.
+      </p>
+      <p>
+        The full description is in the
+        <a href={action.mouUrl} target="_blank" rel="noopener">Memorandum of Understanding</a>
+        and on the <a href={action.costUrl} target="_blank" rel="noopener">official COST Action page</a>.
+      </p>
+    </div>
+  </section>
+
+  <section id="working-groups">
+    <div class="container">
+      <p class="label">Working groups</p>
+      <h2>Three working groups</h2>
+      <div class="wg-grid">
+        {workingGroups.map(wg => (
+          <article class="wg-card">
+            <span class="wg-id">{wg.id}</span>
+            <h3>{wg.title}</h3>
+            <p>Leader: {wg.leader}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section id="join" class="band">
+    <div class="container">
+      <p class="label">How to join</p>
+      <h2>Join AIFORIA</h2>
+      <p class="intro">
+        Participation is open. Researchers join the Action by becoming a member of one or more working groups,
+        which is done through the COST platform.
+      </p>
+      <ol class="steps">
+        <li>
+          <h3>Create an e-COST profile</h3>
+          <p>An e-COST profile is required to apply. If you do not have one, create it at <a href={action.ecostUrl} target="_blank" rel="noopener">e-services.cost.eu</a>.</p>
+        </li>
+        <li>
+          <h3>Apply to the working groups of your interest</h3>
+          <p>Choose one or more of the three working groups and submit the application form on the COST platform.</p>
+        </li>
+        <li>
+          <h3>Tell the Action Chair about your interest</h3>
+          <p>COST asks applicants to inform the Chair. Contact details are on the <a href={action.costUrl} target="_blank" rel="noopener">COST Action page</a>.</p>
+        </li>
+      </ol>
+      <div class="actions">
+        <a class="btn btn-primary" href={action.applyUrl} target="_blank" rel="noopener">Apply to join a working group ↗</a>
+      </div>
+      <p class="note">
+        Management Committee members are nominated through the
+        <a href={action.cncUrl} target="_blank" rel="noopener">COST National Coordinator</a> of each country.
+        Training schools, hackathons and Short-Term Scientific Missions will be announced on this page.
+      </p>
+    </div>
+  </section>
 </main>
 
 <footer>
   <div class="footer-inner">
-    <span>© {new Date().getFullYear()} EuCAIF – European Coalition for AI in Fundamental Physics</span>
-    <a href="mailto:info@eucaif.org">info@eucaif.org</a>
+    <p class="ack">
+      This website is based upon work from COST Action AIFORIA, {action.number}, supported by COST
+      (European Cooperation in Science and Technology).
+    </p>
+    <p class="footer-links">
+      <a href={action.costUrl} target="_blank" rel="noopener">COST Action {action.number}</a>
+      <a href="https://eucaif.org">eucaif.org</a>
+      <span>© {new Date().getFullYear()} AIFORIA</span>
+    </p>
   </div>
 </footer>
 
