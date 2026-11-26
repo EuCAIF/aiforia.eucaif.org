@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Generate the AIFORIA logo SVGs. Run: python3 design/make-logo.py
+"""Generate the AIFORIA logo draft SVGs into design/logo/. Run: python3 design/make-logo.py
+
+The logo is a proposal under discussion and is not used on the website.
 
 Two parents: the letters follow the COST wordmark (heavy monoline strokes, squared shapes
 with rounded corners, flat stroke ends); the central O is the EuCAIF emblem reduced to its
 starry blue disc with one orbit, and the I is the emblem's lowercase i with a round dot.
 """
 import math, os
-OUT = os.path.join(os.path.dirname(__file__), '..', 'public', 'images')
+OUT = os.path.join(os.path.dirname(__file__), 'logo')   # drafts only; not published with the site
 NAVY, WHITE, CORAL = '#1b1f4b', '#ffffff', '#e0523f'
 STROKE = 20      # stroke weight on a 100-unit cap height
 R = 18           # centre-line corner radius
