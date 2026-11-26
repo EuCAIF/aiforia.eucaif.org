@@ -1,0 +1,67 @@
+/* AIFORIA landing page. Tokens mirror eucaif.org so the two sites read as one family. */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #ffffff;
+  --bg-alt: #f6f7f8;
+  --bg-footer: #1d2528;
+  --text: #333a3e;
+  --text-body: #5a6166;
+  --text-muted: #8a9196;
+  --accent: #e0523f;
+  --accent-dark: #c8432f;
+  --border: #e8eaec;
+  --footer-text: #b8c0c4;
+  --font-sans: 'IBM Plex Sans', -apple-system, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --font-heading: 'STIX Two Text', 'Times New Roman', Times, serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+  --radius: 6px;
+  --gutter: 2rem;
+  --container: 1200px;
+}
+
+html, body { height: 100%; }
+body {
+  display: flex; flex-direction: column; min-height: 100vh;
+  font-family: var(--font-sans); font-size: 1rem; line-height: 1.7;
+  color: var(--text-body); background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-dark); }
+
+.top { padding: 1.1rem var(--gutter); border-bottom: 1px solid var(--border); }
+.top-inner { max-width: var(--container); margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: inline-flex; align-items: center; gap: 0.6rem; color: var(--text); font-weight: 600; letter-spacing: 0.01em; }
+.brand img { width: 34px; height: 34px; border-radius: 50%; display: block; }
+.brand:hover { color: var(--accent); }
+.top-link { font-size: 0.875rem; color: var(--text-body); }
+
+.hero { flex: 1; display: flex; align-items: center; padding: 5rem var(--gutter); }
+.hero-inner { max-width: var(--container); width: 100%; margin: 0 auto; }
+.label {
+  font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.75rem;
+}
+h1 {
+  font-family: var(--font-heading); font-weight: 400; color: var(--text);
+  font-size: clamp(3rem, 9vw, 6rem); line-height: 1.05; letter-spacing: -0.01em;
+}
+.lead { font-size: 1.25rem; line-height: 1.5; color: var(--text); max-width: 38rem; margin-top: 1.5rem; }
+.note { max-width: 38rem; margin-top: 1rem; }
+.btn {
+  display: inline-block; margin-top: 2rem; padding: 0.7rem 1.5rem; border-radius: var(--radius);
+  background: var(--accent); color: #fff; font-size: 0.875rem; font-weight: 500;
+  transition: background 0.2s;
+}
+.btn:hover { background: var(--accent-dark); color: #fff; }
+
+footer { background: var(--bg-footer); color: var(--footer-text); padding: 1.5rem var(--gutter); font-size: 0.8rem; }
+.footer-inner { max-width: var(--container); margin: 0 auto; display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+footer a { color: var(--footer-text); }
+footer a:hover { color: #fff; }
+
+@media (max-width: 700px) {
+  :root { --gutter: 1.25rem; }
+  .hero { padding: 3.5rem var(--gutter); }
+}
